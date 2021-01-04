@@ -19,8 +19,23 @@ function getPersonHTML(person) {
       </tr>`
 }
 
+let allPersons = [];  
 fetch ('team.json')
 .then(res => res.json())
-.then (persons => {
-    insertPersons(persons);
+.then (data => {
+    allPersons = data
+    insertPersons(data);
+});
+
+function searchPersons(text) {
+    return allPersons.filter(person => {
+        return person.firstName == text;
+    }); 
+}
+    
+const search = document.getElementById('search');
+search.addEventListener("input", e => {
+const  text = e.target.value;
+const filtrate = searchPersons(text);
+insertPersons(filtrate)
 });

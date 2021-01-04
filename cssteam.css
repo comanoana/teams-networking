@@ -1,6 +1,8 @@
 #list{
     border-collapse: collapse;
-    width: 100%;}
+    width: 100%;
+    
+}
  #list th{
      background-color:#00aeef;
      color:white;
