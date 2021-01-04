@@ -6,11 +6,11 @@ function insertPersons(persons) {
 }
 
 function getPersonsHTML(persons) {
-    console.log("Persons ", persons);
-
-    return getPersonHTML(persons[0]) + getPersonHTML(persons[1]) + getPersonHTML(persons[2])
- }
-
+     var htmlElements =  persons.map(function(person){
+     return getPersonHTML(person)
+   });  
+   return htmlElements.join("");
+  }
 function getPersonHTML(person) {
 
    const gitHub = person.gitHub
