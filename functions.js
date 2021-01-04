@@ -29,7 +29,7 @@ fetch ('team.json')
 
 function searchPersons(text) {
     return allPersons.filter(person => {
-        return person.firstName == text;
+        return person.firstName.indexOf(text) > -1 ;
     }); 
 }
     
