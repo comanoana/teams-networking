@@ -6,15 +6,12 @@ function insertPersons(persons) {
 }
 
 function getPersonsHTML(persons) {
-     var htmlElements =  persons.map(function(person){
-     return getPersonHTML(person)
-   });  
-   return htmlElements.join("");
+     return persons.map(getPersonHTML).join("");  
+   
   }
+
 function getPersonHTML(person) {
-
-   const gitHub = person.gitHub
-
+    const gitHub = person.gitHub
     return `<tr>
         <td>${person.firstName}</td>
         <td>${person.lastName}</td>
