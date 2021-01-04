@@ -28,8 +28,9 @@ fetch ('team.json')
 });
 
 function searchPersons(text) {
+    text = text.toLowerCase();
     return allPersons.filter(person => {
-        return person.firstName.indexOf(text) > -1 ;
+        return person.firstName.toLowerCase().indexOf(text) > -1 ;
     }); 
 }
     
@@ -39,3 +40,4 @@ const  text = e.target.value;
 const filtrate = searchPersons(text);
 insertPersons(filtrate)
 });
+ 
