@@ -1,0 +1,11 @@
+ td, th {
+    padding: 20px;
+    margin: 0;
+   /* text-align: left;
+    border: 2px solid black;*/
+} 
+#list{
+
+    border-collapse: collapse;
+}
+
