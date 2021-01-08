@@ -14,7 +14,7 @@ const API = {
     DELETE: {
         URL: "",
         METHOD: "GET"
-    },
+    }
 };
 
 
@@ -46,7 +46,7 @@ function loadList(){
  fetch(API.READ.URL)
 .then(res => res.json())
 .then (data => {
-    allPersons = data  
+    allPersons = data;
     insertPersons(data);
 });
 }
@@ -55,6 +55,7 @@ loadList();
 
 function searchPersons(text) {
     text = text.toLowerCase();
+    console.warn("search", text);
     return allPersons.filter(person => {
         return person.firstName.toLowerCase().indexOf(text) > -1 ||
                 person.lastName.toLowerCase().indexOf(text) > -1;
@@ -83,19 +84,20 @@ function saveTeamMember(){
 
 fetch(API.CREATE.URL, { 
   method: API.CREATE.METHOD,
-body: API.CREATE.METHOD === "GET" ? null: JSON.stringify(person)
-
-}).then(res => res.json())
+    body: API.CREATE.METHOD === "GET" ? null: JSON.stringify(person)
+})
+.then(res => res.json())
    .then(r =>{
+       console.warn(r);   
        if (r.success){
-           alert('saving data...., please wait until we are ready.');
-           console.info('refresh list');
-           loadList();
-       }
+         alert('saiving data....please wait until we are ready.')
+            console.info('refresh list');
+        loadList()
     }
-   )};
+    }
+   )}; 
 
-const saveBtn = document.querySelector("#list td button");
+const saveBtn = document.querySelector("#list tfoot button");
 saveBtn.addEventListener("click", () => {
     saveTeamMember();
-});
+}); 
