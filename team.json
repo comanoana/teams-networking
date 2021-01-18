@@ -1,15 +1,16 @@
-[{
+[{  "id": "a123",
     "firstName": "Oana",
     "lastName":"Coman",
     "gitHub": "https://github.com/"
 },
-{
+{   "id": "b654",
     "firstName": "Paul",
     "lastName":"Coman",
     "gitHub": "https://github.com/"
 
 },
-{   "firstName": "Daniel",
+{   "id": "3afne",
+     "firstName": "Daniel",
     "lastName":"Rodila",
     "gitHub": "https://github.com/"
 }
