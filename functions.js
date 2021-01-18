@@ -38,6 +38,7 @@ function getPersonHTML(person) {
         <td><a target="_blanck" href="https://github.com/${gitHub}">gitHub</a></td>
         <td>
         <a href="#" class="delete-row" data-id="${person.id}">&#10006;</a>
+        
         </td>
       </tr>`; 
 }
@@ -88,19 +89,25 @@ fetch(API.CREATE.URL, {
    .then(r =>{
        console.warn(r);   
        if (r.success){
-        loadList()
+        loadList();
     }
     }
    )}; 
-function deleteTeamMember(id){
-    fetch("http://localhost:3000/teams-json/delete", {
-  method: "DELETE",
+
+   function deleteTeamMember(id){
+    fetch(API.DELETE.URL,{
+  method:API.DELETE.METHOD,
   headers: {
     "Content-Type": "application/json"
   },
-  body: JSON.stringify({ id})
-});
-
+  body: JSON.stringify({id})
+}).then(res => res.json())
+   .then( r=>{
+       console.warn(r);
+       if(r.success){
+           loadList();
+       }
+   })
 };
 
 function addEventListeners(){
@@ -121,8 +128,7 @@ function addEventListeners(){
         const target = e.target;
        if(target.matches("a.delete-row")){
            const id = target.getAttribute("data-id")
-        
-        deleteTeamMember(id);
+         deleteTeamMember(id);
        }
        
     });
